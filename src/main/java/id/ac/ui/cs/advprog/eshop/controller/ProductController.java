@@ -30,9 +30,14 @@ public class ProductController {
     }
 
     @GetMapping("/list")
-    public  String productListPage(Model model) {
+    public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
         return "productList";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable String productId) {
+        return String.format("Product with %s id is deleted", productId);
     }
 }
