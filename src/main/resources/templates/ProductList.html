@@ -27,6 +27,10 @@
         <form th:action="@{/product/delete/{id}(id=${product.productId})}" method="post">
           <button type="submit">Delete</button>
         </form>
+
+        <form th:action="@{/product/edit/{id}(id=${product.productId})}" method="get">
+          <button type="submit">Edit</button>
+        </form>
       </td>
     </tr>
     </tbody>

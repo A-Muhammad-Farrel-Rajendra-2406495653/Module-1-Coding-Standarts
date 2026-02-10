@@ -32,4 +32,25 @@ public class ProductRepository {
             }
         }
     }
+
+    public Product find(String productId) {
+        if (productId != null && productData != null) {
+            for (Product product: productData) {
+                if (product.getProductId().equals(productId)) {
+                    return product;
+                }
+            }
+        }
+        return null;
+    }
+
+    public Product edit(Product product) {
+        for (int i = 0; i < productData.size(); i++) {
+            if (productData.get(i).getProductId().equals(product.getProductId())) {
+                productData.set(i, product);
+                return product;
+            }
+        }
+        return null;
+    }
 }
