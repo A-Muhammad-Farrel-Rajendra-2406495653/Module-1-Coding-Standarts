@@ -36,8 +36,10 @@ public class ProductController {
         return "productList";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable String productId) {
-        return String.format("Product with %s id is deleted", productId);
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") String productId) {
+        System.out.println("id mau dihapus: " + productId); // Cek di console/terminal
+        service.delete(productId);
+        return "redirect:/product/list";
     }
 }
