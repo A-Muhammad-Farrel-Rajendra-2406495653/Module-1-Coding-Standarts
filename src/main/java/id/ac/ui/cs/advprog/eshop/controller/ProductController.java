@@ -45,6 +45,7 @@ public class ProductController {
 
     @GetMapping("/edit/{id}")
     public String editProductPage(@PathVariable("id") String productId, Model model) {
+        System.out.println("id mau diedit: " + productId); // Cek di console/terminal
         Product product = service.find(productId);
         model.addAttribute("product", product);
         return "EditProduct";

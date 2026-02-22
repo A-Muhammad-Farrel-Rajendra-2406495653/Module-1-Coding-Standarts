@@ -3,16 +3,16 @@ package id.ac.ui.cs.advprog.eshop.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter @Setter
 public class Product {
-    private static Integer classId = 0;
     private String productId;
     private String productName;
     private int productQuantity;
 
     public Product() {
-        classId++;
-        this.productId = classId.toString();
-        System.out.println("spawn constructor, sekarang id nya: " + classId);
+        this.productId = UUID.randomUUID().toString();
+        System.out.println("spawn constructor, sekarang id nya: " + productId);
     }
 }
