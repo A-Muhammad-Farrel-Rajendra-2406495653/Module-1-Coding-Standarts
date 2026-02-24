@@ -1,3 +1,10 @@
+title: Eshop ADPRO
+emoji: 🛒
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+
 # Reflection 1
 * Secure Coding: Saya memeriksa apakah produk atau id produk yang ingin dihapus atau diedit tidak null, sebelum meelakukan operasi hapus atau edit produk. hal ini dilakukan untuk menghindari `NullPointerException`.
 * Clean Code: Memberikan nama method, atribut, dan variabel yang jelas dan konsisten antar file agar mudah dibaca dan di-track bila ada error.
