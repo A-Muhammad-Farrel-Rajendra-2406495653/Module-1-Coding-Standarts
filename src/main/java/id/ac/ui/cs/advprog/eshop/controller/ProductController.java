@@ -20,7 +20,7 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "create-product";
+        return "createProduct";
     }
 
     @PostMapping("/create")
@@ -40,7 +40,7 @@ public class ProductController {
     public String deleteProduct(@PathVariable("id") String productId) {
         System.out.println("id mau dihapus: " + productId); // Cek di console/terminal
         service.delete(productId);
-        return "redirect:list";
+        return "redirect:/product/list";
     }
 
     @GetMapping("/edit/{id}")
