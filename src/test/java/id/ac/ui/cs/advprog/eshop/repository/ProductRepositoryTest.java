@@ -67,4 +67,62 @@ public class ProductRepositoryTest {
         assertEquals(product2, savedProduct);
         assertFalse(productIterator.hasNext());
     }
+
+
+
+    @Test
+    void testFindProductById() {
+        Product product1 = new Product();
+        product1.setProductId("abc");
+        product1.setProductName("produk1");
+        product1.setProductQuantity(100);
+        productRepository.create(product1);
+
+        Product found = productRepository.find("abc");
+        Product unfound = productRepository.find("def");
+        assertEquals(product1, found);
+        assertNull(unfound);
+        assertNull(productRepository.find(null));
+    }
+
+    @Test
+    void testFindNonExistProduct() {
+        Product nonExistProduct = new Product();
+        nonExistProduct.setProductId("abc");
+        nonExistProduct.setProductName("nonexist");
+        nonExistProduct.setProductQuantity(100);
+
+        assertNull(productRepository.find(nonExistProduct.getProductId()));
+    }
+
+    @Test
+    void testEditProduct() {
+        Product product1 = new Product();
+        product1.setProductId("abc");
+        product1.setProductName("produk1");
+        product1.setProductQuantity(100);
+        productRepository.create(product1);
+
+        Product product1Edited = new Product();
+        product1Edited.setProductId("abc");
+        product1Edited.setProductName("produk1Edited");
+        product1Edited.setProductQuantity(20000);
+
+        productRepository.edit(product1Edited);
+        Product expected = productRepository.find(product1Edited.getProductId());
+
+        assertNotNull(expected);
+        assertEquals(expected.getProductName(), productRepository.find(expected.getProductId()).getProductName());
+        assertEquals(expected.getProductQuantity(), productRepository.find(expected.getProductId()).getProductQuantity());
+    }
+
+    @Test
+    void testEditNonExistProduct() {
+        Product nonExistProduct = new Product();
+        nonExistProduct.setProductId("abc");
+        nonExistProduct.setProductName("nonexist");
+        nonExistProduct.setProductQuantity(100);
+
+        assertNull(productRepository.edit(nonExistProduct));
+    }
 }
