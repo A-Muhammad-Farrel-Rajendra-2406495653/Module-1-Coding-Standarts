@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+@Repository
 public class CarRepository {
     static int id = 0;
     private List<Car> carData = new ArrayList<>();
@@ -36,6 +37,7 @@ public class CarRepository {
         for (int i = 0; i < carData.size(); i++) {
             Car car = carData.get(i);
             if (car.getCarId().equals(id)) {
+                // update the existing car with the new information
                 car.setCarName(updatedCar.getCarName());
                 car.setCarColor(updatedCar.getCarColor());
                 car.setCarQuantity(updatedCar.getCarQuantity());
