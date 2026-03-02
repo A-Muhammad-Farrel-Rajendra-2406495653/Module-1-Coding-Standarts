@@ -16,7 +16,8 @@ pinned: false
   * Selanjutnya, karena operasi delete product diimplementasi sebelum operasi edit product, implementasi edit product yang saya lakukan jadi lebih lancar karena tidak mengulang kessalahan yang sama saat implementasi delete product.
 
 ---
-# Reflection 2
+# Reflection 2  
+link deployment: https://farrelzzz-eshop-adpro.hf.space/product/list
 ## 1. Code Quality Issue(s) yang Diperbaiki
 Berikut warnings yang saya terima ketika pertama kali berhasil menjalankan workflows PMD
 <img width="1899" height="937" alt="Screenshot 2026-02-23 220034" src="https://github.com/user-attachments/assets/fe2a91c7-a96c-4f60-b697-e6eabc748996" />
