@@ -16,7 +16,8 @@ pinned: false
   * Selanjutnya, karena operasi delete product diimplementasi sebelum operasi edit product, implementasi edit product yang saya lakukan jadi lebih lancar karena tidak mengulang kessalahan yang sama saat implementasi delete product.
 
 ---
-# Reflection 2
+# Reflection 2  
+link deployment: https://farrelzzz-eshop-adpro.hf.space/product/list
 ## 1. Code Quality Issue(s) yang Diperbaiki
 Berikut warnings yang saya terima ketika pertama kali berhasil menjalankan workflows PMD
 <img width="1899" height="937" alt="Screenshot 2026-02-23 220034" src="https://github.com/user-attachments/assets/fe2a91c7-a96c-4f60-b697-e6eabc748996" />
@@ -28,4 +29,23 @@ Berikut warnings yang saya terima ketika pertama kali berhasil menjalankan workf
 Berikut warnings yang tersisa dan test summary setelah perbaikan issues di atas
 <img width="1885" height="729" alt="Screenshot 2026-02-23 223534" src="https://github.com/user-attachments/assets/77fbcd09-5acd-47b3-9df5-31d1af488f9e" />
 [index.html](https://github.com/user-attachments/files/25494425/index.html) (ini html test summary)  
-note: saya hanya melakukan functional test untuk homepage. Functional test untuk create, edit, dan delete product tidak dilakukan.
+note: saya hanya melakukan functional test untuk homepage. Functional test untuk create, edit, dan delete product tidak dilakukan.  
+  
+---
+# Reflection 3
+## 1. SOLID Principles yang Diterapkan
+* Single Responsibility Principle (SRP): SRP dilakukan dengan memisahkan ProductController dan CarController ke dua file yang tersendiri, sehingga setiap file hanya bertanggung jawab kepada satu controller.
+* Dependency Inversion Principle (DIP): DIP dilakukan dengan menghilangkan ketergantungan CarController terhadap CarServiceImpl yang meruapakn concrete class. Sebagai gantinya, kita menggunakan interface dari CarServiceImpl, yaitu CarService.
+
+## 2. Kelebihan Menerapkan SOLID Principles di Proyek Ini
+Saat mengerjakan modul ini, sebelum menerapkan SOLID Principles, saya sempat mengalami error karena ada typo di file ProductController yang masih berisi dua controller.
+Hal itu membuat saya bingung mencari mana controller yang salah.
+Dari situ saya jadi merasakan sendiri salah satu kelebihan menerapkan SOLID Principles adalah debug jadi lebih mudah jika terjadi error.
+Kelebihan lain yang saya rasa adalah jika kita melakukan penambahan kode, kita bisa memastikan bahwa kode yang sebelumnya sudah aman bisa tetap aman
+dan tidak terganggu oleh kode yang baru ditambahkan.
+
+## 3. Kekurangan Jika Tidak Menerapkan SOLID Principles di Proyek Ini 
+Masih berhubungan dnegan poin 2, suatu blok kode masih melakukan terlalu banyak hal atau terlalu terikat dengan banyak hal.
+Akibatnya, jika kita melakukan suatu penambahan atau perubahan, besar kemungkinan akan ada banyak hal lain yang terdampak dan mengalami error.
+Selain itu, jika terjadi error, proses debug juga jadi lebih sulit. 
+Tentunya hal itu tidak baik untuk maintainability proyek.
