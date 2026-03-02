@@ -75,7 +75,7 @@ class CarController extends ProductController {
         return "create-car";
     }
 
-    @GetMapping("/create-car")
+    @PostMapping("/create-car")
     public String createCarPost(@ModelAttribute Car car, Model model) {
         carService.create(car);
         return "redirect::car-list";
